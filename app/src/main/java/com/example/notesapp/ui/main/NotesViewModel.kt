@@ -3,9 +3,11 @@ package com.example.notesapp.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.notesapp.data.Repository
 import com.example.notesapp.model.Note
 import com.example.notesapp.model.NoteProvider
+import kotlinx.coroutines.launch
 
 class NotesViewModel : ViewModel() {
     private val repository = Repository
@@ -13,7 +15,10 @@ class NotesViewModel : ViewModel() {
     val noteList: LiveData<List<Note>> = _noteList
 
     fun getListNotes() {
-        _noteList.value = NoteProvider.modelNoteList
+//        _noteList.value = NoteProvider.modelNoteList
+        viewModelScope.launch {
+            _noteList.value = repository.getNotes()
+        }
     }
 
 }
