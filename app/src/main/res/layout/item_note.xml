@@ -8,6 +8,7 @@
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
+    android:layout_marginTop="5dp"
     app:cardBackgroundColor="#FFF7AF"
     app:cardElevation="10dp">
 
@@ -16,13 +17,13 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tvTittle"
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:layout_marginStart="17dp"
             android:fontFamily="@font/inder"
-            android:text="Tittle Note 1"
+            android:text="Title Note 1"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,13 +37,14 @@
             android:fontFamily="@font/inder"
             android:paddingTop="5dp"
             android:paddingBottom="12dp"
+            android:maxLines="3"
             android:text="@string/lorem_ipsum"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            app:layout_constraintEnd_toStartOf="@+id/tvDate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTittle" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inder"
