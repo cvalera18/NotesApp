@@ -61,7 +61,7 @@ class NotesFragment : Fragment() {
     }
 
     private fun onItemDeleted(note: Note) {
-
+        viewModel.onDeleteNote(note)
     }
 
     private fun onItemSelected(note: Note) {

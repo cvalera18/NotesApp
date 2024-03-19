@@ -27,4 +27,9 @@ class NotesViewModel : ViewModel() {
         }
     }
 
+    fun onDeleteNote(note: Note) {
+        repository.onDeleteNote(note)
+        getListNotes()
+    }
+
 }

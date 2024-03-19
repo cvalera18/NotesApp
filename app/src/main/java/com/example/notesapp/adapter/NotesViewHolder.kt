@@ -20,5 +20,8 @@ class NotesViewHolder(
         binding.tvTitle.text = noteModel.title
         binding.tvNoteBody.text = noteModel.body
         binding.tvDate.text = noteModel.date
+        binding.ivDelete.setOnClickListener {
+            onDeleteListener.invoke(noteModel)
+        }
     }
 }
