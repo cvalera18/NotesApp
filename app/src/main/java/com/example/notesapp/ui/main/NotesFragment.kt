@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
 import com.example.notesapp.adapter.NotesAdapter
 import com.example.notesapp.databinding.FragmentNotesBinding
 import com.example.notesapp.model.Note
-import com.example.notesapp.model.NoteProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class NotesFragment : Fragment() {
@@ -56,7 +54,7 @@ class NotesFragment : Fragment() {
     private fun initRecyclerView() {
         adapter = NotesAdapter(
             noteList = emptyList(),
-            onClickListener = { onItemSelected(it) },
+            onClickListener = { editNote(it) },
             onDeleteListener = { onItemDeleted(it) },
         )
         val llmanager = LinearLayoutManager(requireContext())
@@ -68,8 +66,13 @@ class NotesFragment : Fragment() {
         viewModel.onDeleteNote(note)
     }
 
-    private fun onItemSelected(note: Note) {
+    private fun editNote(note: Note) {
+        val bundle = Bundle().apply {
+            putString("TITLE", note.title)
+            putString("BODY", note.body)
+        }
 
+        findNavController().navigate(R.id.action_notesFragment_to_newNoteFragment, bundle)
     }
 
     private fun addNote() {

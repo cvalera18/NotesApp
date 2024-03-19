@@ -17,7 +17,6 @@ class NewNoteFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,12 +24,23 @@ class NewNoteFragment : Fragment() {
         _binding = FragmentNewNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         saveNote()
+        initInfo()
+        navigateBack()
     }
-
+    private fun navigateBack() {
+        binding.buttonBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
+    private fun initInfo() {
+        val title = arguments?.getString("TITLE")
+        val body = arguments?.getString("BODY")
+        binding.etTitleNote.setText(title)
+        binding.etBodyNote.setText(body)
+    }
     private fun saveNote() {
         val fab: FloatingActionButton = binding.fabSaveNote
         fab.setOnClickListener {
