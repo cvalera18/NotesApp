@@ -23,5 +23,6 @@ class NotesViewHolder(
         binding.ivDelete.setOnClickListener {
             onDeleteListener.invoke(noteModel)
         }
+
     }
 }
