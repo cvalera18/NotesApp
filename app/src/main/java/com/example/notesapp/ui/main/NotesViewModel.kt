@@ -31,5 +31,4 @@ class NotesViewModel : ViewModel() {
         repository.onDeleteNote(note)
         getListNotes()
     }
-
 }
