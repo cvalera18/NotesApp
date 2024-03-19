@@ -70,6 +70,8 @@ class NotesFragment : Fragment() {
         val bundle = Bundle().apply {
             putString("TITLE", note.title)
             putString("BODY", note.body)
+            putString("DATE", note.date)
+            putString("ID", note.id.toString())
         }
 
         findNavController().navigate(R.id.action_notesFragment_to_newNoteFragment, bundle)

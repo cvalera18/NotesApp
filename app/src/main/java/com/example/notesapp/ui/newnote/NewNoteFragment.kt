@@ -11,6 +11,9 @@ import com.example.notesapp.R
 import com.example.notesapp.databinding.FragmentNewNoteBinding
 import com.example.notesapp.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class NewNoteFragment : Fragment() {
     private var _binding: FragmentNewNoteBinding? = null
@@ -46,8 +49,11 @@ class NewNoteFragment : Fragment() {
     private fun initInfo() {
         val title = arguments?.getString("TITLE")
         val body = arguments?.getString("BODY")
+        val date = arguments?.getString("DATE")
+        currentId = arguments?.getString("ID")?.toLong() ?:0
         binding.etTitleNote.setText(title)
         binding.etBodyNote.setText(body)
+        binding.tvNewNoteDate.text = date
     }
 
     private fun saveNote() {
@@ -55,7 +61,8 @@ class NewNoteFragment : Fragment() {
         fab.setOnClickListener {
             val title = binding.etTitleNote.text.toString()
             val body = binding.etBodyNote.text.toString()
-            viewModel.saveNote(title, body)
+            val date = binding.tvNewNoteDate.text.toString()
+            viewModel.saveOrUpdateNote(currentId, title, body, date)
             findNavController().navigate(R.id.action_newNoteFragment_to_notesFragment)
         }
     }
