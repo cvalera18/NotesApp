@@ -29,6 +29,6 @@ object Repository {
         val noteId = System.currentTimeMillis()
         println("Este es la date: $noteId")
         val newNote = Note(noteId, title, body, date)
-        notesList.add(newNote)
+        notesList.add(0, newNote)
     }
 }

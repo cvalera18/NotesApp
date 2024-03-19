@@ -55,8 +55,7 @@ class NewNoteFragment : Fragment() {
         fab.setOnClickListener {
             val title = binding.etTitleNote.text.toString()
             val body = binding.etBodyNote.text.toString()
-            val currentDate = "Today"
-            viewModel.saveNote(title, body, currentDate)
+            viewModel.saveNote(title, body)
             findNavController().navigate(R.id.action_newNoteFragment_to_notesFragment)
         }
     }
