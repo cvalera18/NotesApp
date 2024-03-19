@@ -15,9 +15,15 @@ class NotesViewModel : ViewModel() {
     val noteList: LiveData<List<Note>> = _noteList
 
     fun getListNotes() {
-//        _noteList.value = NoteProvider.modelNoteList
         viewModelScope.launch {
             _noteList.value = repository.getNotes()
+        }
+    }
+
+    fun searchNotes(userFilter: String) {
+        viewModelScope.launch {
+            val filteredNotes = repository.searchNotes(userFilter)
+            _noteList.value = filteredNotes
         }
     }
 

@@ -13,4 +13,12 @@ object Repository {
         }
     }
 
+    fun searchNotes(userFilter: String): List<Note>{
+        val filteredNotes = notesList
+            .filter { note ->
+                note.body.lowercase().contains(userFilter.lowercase())
+            }
+        return filteredNotes
+    }
+
 }

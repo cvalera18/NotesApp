@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
@@ -33,6 +34,7 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        searchNotes()
         initRecyclerView()
         observeNoteList()
         getListNotes()
@@ -64,6 +66,12 @@ class NotesFragment : Fragment() {
 
     private fun onItemSelected(note: Note) {
 
+    }
+
+    private fun searchNotes() {
+        binding.etSearchNotes.addTextChangedListener{ userSearch ->
+            viewModel.searchNotes(userSearch.toString())
+        }
     }
 
 }

@@ -25,7 +25,7 @@ class NoteProvider {
             Note(
                 id = 4,
                 title = "Cuarta Nota",
-                body = "Este es un modelo de nota, la idea es ver si se muestra bien, primero con datos locales antes de guardar realmente en una BD. En fecha colocaremos una palabra",
+                body = "Este es un modelo de nota, con la palabra Ripsy la idea es ver si se muestra bien, primero con datos locales antes de guardar realmente en una BD. En fecha colocaremos una palabra",
                 date = "Yesterday"
             ),
             Note(
