@@ -18,7 +18,7 @@ object Repository {
     fun searchNotes(userFilter: String): List<Note>{
         val filteredNotes = notesList
             .filter { note ->
-                note.body.lowercase().contains(userFilter.lowercase())
+                note.body.lowercase().contains(userFilter.lowercase()) || note.title.lowercase().contains(userFilter.lowercase())
             }
         return filteredNotes
     }
@@ -37,15 +37,13 @@ object Repository {
         val noteIndex = notesList.indexOfFirst { it.id == note.id }
         if (noteIndex >= 0) {
             val updatedNote = note.copy(date = getCurrentDate())
-            // Elimina la nota existente
             notesList.removeAt(noteIndex)
-            // Agrega la nota actualizada al principio de la lista
             notesList.add(0, updatedNote)
         }
     }
 
     private fun getCurrentDate(): String {
-        val dateFormat = SimpleDateFormat("dd-MM-yy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
         return dateFormat.format(Date())
     }
 }
