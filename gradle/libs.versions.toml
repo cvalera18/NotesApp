@@ -1,5 +1,6 @@
 [versions]
 agp = "8.3.0"
+hiltAndroid = "2.44"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -13,10 +14,14 @@ fragment = "1.6.2"
 navigation = "2.7.7"
 coroutines = "1.6.4"
 coroutinesTest = "1.6.1"
+hilt = "2.44"
+kapt = "1.9.23"
 
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -33,4 +38,6 @@ org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hiltPlugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
