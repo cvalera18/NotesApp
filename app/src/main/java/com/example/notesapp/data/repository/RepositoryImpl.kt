@@ -7,9 +7,12 @@ import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import javax.inject.Inject
 
-object RepositoryImpl : Repository {
-    private var notesList: MutableList<Note> = NoteProvider.modelNoteList.toMutableList()
+class RepositoryImpl @Inject constructor(
+    private val noteProvider: NoteProvider
+) : Repository {
+    private var notesList: MutableList<Note> = noteProvider.modelNoteList.toMutableList()
     override suspend fun getNotes(): List<Note> {
         return withContext(Dispatchers.IO) {
             return@withContext notesList

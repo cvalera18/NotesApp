@@ -11,10 +11,11 @@ import com.example.notesapp.R
 import com.example.notesapp.databinding.FragmentNewNoteBinding
 import com.example.notesapp.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
+@AndroidEntryPoint
 class NewNoteFragment : Fragment() {
     private var _binding: FragmentNewNoteBinding? = null
     private val binding get() = _binding!!
