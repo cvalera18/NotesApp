@@ -21,10 +21,6 @@ class NewNoteFragment : Fragment() {
     private val viewModel: NewNoteViewModel by viewModels()
     private var currentId: Long = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

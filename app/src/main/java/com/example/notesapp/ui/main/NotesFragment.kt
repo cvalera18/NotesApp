@@ -11,21 +11,20 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
 import com.example.notesapp.adapter.NotesAdapter
+import com.example.notesapp.adapter.NotesAdapterFactory
 import com.example.notesapp.databinding.FragmentNotesBinding
 import com.example.notesapp.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class NotesFragment : Fragment() {
+    @Inject lateinit var adapterFactory: NotesAdapterFactory
+    private lateinit var adapter: NotesAdapter
     private var _binding: FragmentNotesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: NotesAdapter
     private val viewModel: NotesViewModel by viewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,8 +53,7 @@ class NotesFragment : Fragment() {
         }
     }
     private fun initRecyclerView() {
-        adapter = NotesAdapter(
-            noteList = emptyList(),
+        adapter = adapterFactory.create(
             onClickListener = { editNote(it) },
             onDeleteListener = { onItemDeleted(it) },
         )
