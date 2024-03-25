@@ -2,6 +2,7 @@ package com.example.notesapp.data.repository
 
 import com.example.notesapp.model.Note
 import com.example.notesapp.model.NoteProvider
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
@@ -10,11 +11,12 @@ import java.util.Locale
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
-    private val noteProvider: NoteProvider
+    private val noteProvider: NoteProvider,
+    private val ioDispatcher: CoroutineDispatcher
 ) : Repository {
     private var notesList: MutableList<Note> = noteProvider.modelNoteList.toMutableList()
     override suspend fun getNotes(): List<Note> {
-        return withContext(Dispatchers.IO) {
+        return withContext(ioDispatcher) {
             return@withContext notesList
         }
     }
