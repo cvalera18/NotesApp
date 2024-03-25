@@ -3,6 +3,7 @@ package com.example.notesapp.di
 import com.example.notesapp.data.repository.Repository
 import com.example.notesapp.data.repository.RepositoryImpl
 import com.example.notesapp.model.NoteProvider
+import com.example.notesapp.utils.DateProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,11 @@ object AppModule {
     @Provides
     fun provideRepository(
         noteProvider: NoteProvider,
-        ioDispatcher: CoroutineDispatcher
-    ): Repository = RepositoryImpl(noteProvider, ioDispatcher)
+        ioDispatcher: CoroutineDispatcher,
+        dateProvider: DateProvider
+    ): Repository = RepositoryImpl(noteProvider, ioDispatcher, dateProvider)
 
+    @Singleton
+    @Provides
+    fun provideDateProvider(): DateProvider = DateProvider()
 }
