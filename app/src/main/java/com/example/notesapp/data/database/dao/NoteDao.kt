@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.notesapp.data.database.entities.NoteEntity
 
 @Dao
@@ -20,4 +21,7 @@ interface NoteDao {
 
     @Delete
     suspend fun delete(note: NoteEntity)
+
+    @Update
+    suspend fun update(note: NoteEntity)
 }

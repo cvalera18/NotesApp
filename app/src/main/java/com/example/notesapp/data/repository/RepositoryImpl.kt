@@ -34,14 +34,11 @@ class RepositoryImpl @Inject constructor(
             noteDao.insert(noteEntity)
         }
     }
-    // TODO: Fix updateNote function, fix the order
     override suspend fun updateNote(note: Note) {
         withContext(ioDispatcher) {
-            val updatedNoteEntity = note.toEntity()
-            // Si tu DAO tiene un método de actualización, úsalo aquí.
-            // Por ejemplo: noteDao.update(updatedNoteEntity)
-            // Si no, puedes simplemente reinsertar el objeto para actualizarlo si tu @Insert maneja conflictos.
-            noteDao.insert(updatedNoteEntity)
+            val noteEntity = note.toEntity()
+            val updatedNoteEntity = noteEntity.copy(date = System.currentTimeMillis())
+            noteDao.update(updatedNoteEntity)
         }
     }
 }
