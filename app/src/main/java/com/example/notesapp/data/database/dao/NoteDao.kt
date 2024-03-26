@@ -12,6 +12,9 @@ interface NoteDao {
     @Query("SELECT * FROM note_table")
     suspend fun getAllNotes(): List<NoteEntity>
 
+    @Query("SELECT * FROM note_table WHERE LOWER(title) LIKE LOWER( :searchQuery) OR LOWER(body) LIKE LOWER( :searchQuery)")
+    suspend fun searchNotes(searchQuery: String): List<NoteEntity>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(note: NoteEntity)
 

@@ -19,13 +19,9 @@ class RepositoryImpl @Inject constructor(
     override suspend fun getNotes(): List<Note> = withContext(ioDispatcher) {
         noteDao.getAllNotes().map { it.toNote() }
     }
-    // TODO: Fix searchNotes function.
-    override fun searchNotes(userFilter: String): List<Note>{
-        val filteredNotes = emptyList<Note>()
-            .filter { note ->
-                note.body.lowercase().contains(userFilter.lowercase()) || note.title.lowercase().contains(userFilter.lowercase())
-            }
-        return filteredNotes
+    override suspend fun searchNotes(userFilter: String): List<Note> = withContext(ioDispatcher){
+        val searchQuery = "%${userFilter.lowercase()}%"
+        noteDao.searchNotes(searchQuery).map { it.toNote() }
     }
     override suspend fun onDeleteNote(newNote: Note) {
         withContext(ioDispatcher) {
