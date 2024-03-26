@@ -1,7 +1,6 @@
 package com.example.notesapp.data.repository
 
 import com.example.notesapp.model.Note
-import com.example.notesapp.data.NoteProvider
 import com.example.notesapp.data.database.dao.NoteDao
 import com.example.notesapp.model.toEntity
 import com.example.notesapp.model.toNote
@@ -28,10 +27,10 @@ class RepositoryImpl @Inject constructor(
             noteDao.delete(newNote.toEntity())
         }
     }
-    // TODO: Fix save order
     override suspend fun saveNote(title: String, body: String) {
         withContext(ioDispatcher){
-            val noteEntity = Note(0, title, body, dateProvider.getCurrentDate()).toEntity()
+            val dateLong = System.currentTimeMillis()
+            val noteEntity = Note(0, title, body, dateLong).toEntity()
             noteDao.insert(noteEntity)
         }
     }

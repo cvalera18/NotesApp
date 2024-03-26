@@ -13,6 +13,9 @@ import com.example.notesapp.databinding.FragmentNewNoteBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class NewNoteFragment : Fragment() {
@@ -45,11 +48,15 @@ class NewNoteFragment : Fragment() {
     private fun initInfo() {
         val title = arguments?.getString("TITLE")
         val body = arguments?.getString("BODY")
-        val date = arguments?.getString("DATE")
+        val date = arguments?.getLong("DATE", 0L) ?: 0L
         currentId = arguments?.getString("ID")?.toLong() ?:0
         binding.etTitleNote.setText(title)
         binding.etBodyNote.setText(body)
-        binding.tvNewNoteDate.text = date
+        binding.tvNewNoteDate.text = if (date != 0L) {
+            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date(date))
+        } else {
+            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
+        }
     }
 
     private fun saveNote() {
@@ -59,9 +66,20 @@ class NewNoteFragment : Fragment() {
             val body = binding.etBodyNote.text.toString()
             val date = binding.tvNewNoteDate.text.toString()
             lifecycleScope.launch {
-                viewModel.saveOrUpdateNote(currentId, title, body, date)
+                val dateAsLong = convertDateStringToLong(date)
+                viewModel.saveOrUpdateNote(currentId, title, body, dateAsLong)
                 findNavController().navigate(R.id.action_newNoteFragment_to_notesFragment)
             }
+        }
+    }
+
+    private fun convertDateStringToLong(dateString: String): Long {
+        val dateFormat = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
+        return try {
+            val date = dateFormat.parse(dateString)
+            date?.time ?: System.currentTimeMillis() // Usa la fecha actual como fallback si el parsing falla
+        } catch (e: Exception) {
+            System.currentTimeMillis() // Usa la fecha actual como fallback en caso de error
         }
     }
 }

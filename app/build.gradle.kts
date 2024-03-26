@@ -62,7 +62,6 @@ dependencies {
     kapt(libs.room.compiler)
     implementation(libs.room.ktx)
 
-
     kapt(libs.hilt.android.compiler)
     testImplementation(libs.org.jetbrains.kotlinx.coroutines.test)
     testImplementation(libs.junit)

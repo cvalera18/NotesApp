@@ -14,7 +14,7 @@ class NewNoteViewModel @Inject constructor(
 ) : ViewModel() {
     private val _newNoteList = MutableLiveData<List<Note>>(emptyList())
     val newNoteList: LiveData<List<Note>> = _newNoteList
-    suspend fun saveOrUpdateNote(id: Long, title: String, body: String, date: String) {
+    suspend fun saveOrUpdateNote(id: Long, title: String, body: String, date: Long) {
         if (id <= 0) {
             repository.saveNote(title, body)
         } else {
