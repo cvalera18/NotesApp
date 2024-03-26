@@ -16,6 +16,7 @@ coroutines = "1.6.4"
 coroutinesTest = "1.6.1"
 hilt = "2.51"
 kapt = "1.9.23"
+room = "2.6.1"
 
 
 [libraries]
@@ -34,6 +35,9 @@ androidx-navigation-fragment = {group = "androidx.navigation", name = "navigatio
 androidx-navigation-ui = {group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation"}
 org-jetbrains-kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
 org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutinesTest"}
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
