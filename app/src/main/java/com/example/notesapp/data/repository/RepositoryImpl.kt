@@ -1,14 +1,10 @@
 package com.example.notesapp.data.repository
 
 import com.example.notesapp.model.Note
-import com.example.notesapp.model.NoteProvider
+import com.example.notesapp.data.NoteProvider
 import com.example.notesapp.utils.DateProvider
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(

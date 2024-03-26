@@ -1,5 +1,6 @@
-package com.example.notesapp.model
+package com.example.notesapp.data
 
+import com.example.notesapp.model.Note
 import javax.inject.Inject
 
 class NoteProvider @Inject constructor() {

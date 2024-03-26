@@ -2,12 +2,11 @@ package com.example.notesapp.di
 
 import com.example.notesapp.data.repository.Repository
 import com.example.notesapp.data.repository.RepositoryImpl
-import com.example.notesapp.model.NoteProvider
+import com.example.notesapp.data.NoteProvider
 import com.example.notesapp.utils.DateProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
