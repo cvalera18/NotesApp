@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
@@ -16,6 +17,7 @@ import com.example.notesapp.databinding.FragmentNotesBinding
 import com.example.notesapp.model.Note
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -63,7 +65,9 @@ class NotesFragment : Fragment() {
     }
 
     private fun onItemDeleted(note: Note) {
-        viewModel.onDeleteNote(note)
+        lifecycleScope.launch {
+            viewModel.onDeleteNote(note)
+        }
     }
 
     private fun editNote(note: Note) {

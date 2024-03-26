@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notesapp.data.repository.Repository
-import com.example.notesapp.data.repository.RepositoryImpl
 import com.example.notesapp.model.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -31,7 +30,7 @@ class NotesViewModel @Inject constructor(
         }
     }
 
-    fun onDeleteNote(note: Note) {
+    suspend fun onDeleteNote(note: Note) {
         repository.onDeleteNote(note)
         getListNotes()
     }

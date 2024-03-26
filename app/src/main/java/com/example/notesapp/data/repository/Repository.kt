@@ -5,7 +5,7 @@ import com.example.notesapp.model.Note
 interface Repository {
     suspend fun getNotes(): List<Note>
     fun searchNotes(userFilter: String): List<Note>
-    fun onDeleteNote(newNote: Note)
-    fun saveNote(title: String, body: String)
-    fun updateNote(note: Note)
+    suspend fun onDeleteNote(newNote: Note)
+    suspend fun saveNote(title: String, body: String)
+    suspend fun updateNote(note: Note)
 }

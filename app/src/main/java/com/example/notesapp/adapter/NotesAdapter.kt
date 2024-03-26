@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
 import com.example.notesapp.model.Note
-import javax.inject.Inject
 
 class NotesAdapter(
     private var noteList: List<Note>,
