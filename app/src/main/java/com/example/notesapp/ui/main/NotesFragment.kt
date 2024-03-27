@@ -43,7 +43,11 @@ class NotesFragment : Fragment() {
         initRecyclerView()
         observeNoteList()
         getListNotes()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        getListNotes()
     }
 
     private fun getListNotes() {
