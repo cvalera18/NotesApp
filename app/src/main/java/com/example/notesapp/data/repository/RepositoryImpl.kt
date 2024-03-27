@@ -4,15 +4,13 @@ import com.example.notesapp.model.Note
 import com.example.notesapp.data.database.dao.NoteDao
 import com.example.notesapp.model.toEntity
 import com.example.notesapp.model.toNote
-import com.example.notesapp.utils.DateProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val noteDao: NoteDao,
-    private val ioDispatcher: CoroutineDispatcher,
-    private val dateProvider: DateProvider
+    private val ioDispatcher: CoroutineDispatcher
 ) : Repository {
 
     override suspend fun getNotes(): List<Note> = withContext(ioDispatcher) {

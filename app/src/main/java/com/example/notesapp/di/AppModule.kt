@@ -2,7 +2,6 @@ package com.example.notesapp.di
 
 import com.example.notesapp.data.repository.Repository
 import com.example.notesapp.data.repository.RepositoryImpl
-import com.example.notesapp.data.NoteProvider
 import com.example.notesapp.data.database.dao.NoteDao
 import com.example.notesapp.utils.DateProvider
 import dagger.Module
@@ -26,7 +25,7 @@ object AppModule {
         noteDao: NoteDao,
         ioDispatcher: CoroutineDispatcher,
         dateProvider: DateProvider
-    ): Repository = RepositoryImpl(noteDao, ioDispatcher, dateProvider)
+    ): Repository = RepositoryImpl(noteDao, ioDispatcher)
 
     @Singleton
     @Provides
