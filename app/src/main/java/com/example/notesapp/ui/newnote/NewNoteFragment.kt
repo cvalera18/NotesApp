@@ -52,11 +52,14 @@ class NewNoteFragment : Fragment() {
         currentId = arguments?.getString("ID")?.toLong() ?:0
         binding.etTitleNote.setText(title)
         binding.etBodyNote.setText(body)
-        binding.tvNewNoteDate.text = if (date != 0L) {
-            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date(date))
-        } else {
-            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
-        }
+        binding.tvNewNoteDate.text = convertDateLongToString(date)
+//        if (date != 0L) {
+//            convertDateLongToString(date)
+////            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date(date))
+//        } else {
+//            convertDateLongToString(date)
+////            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
+//        }
     }
 
     private fun saveNote() {
@@ -80,6 +83,15 @@ class NewNoteFragment : Fragment() {
             date?.time ?: System.currentTimeMillis() // Usa la fecha actual como fallback si el parsing falla
         } catch (e: Exception) {
             System.currentTimeMillis() // Usa la fecha actual como fallback en caso de error
+        }
+    }
+    private fun convertDateLongToString(dateLong: Long?): String {
+        return if (dateLong == null || dateLong == 0L) {
+            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
+        } else {
+            // Si dateLong no es null y es diferente de 0, convierte y retorna la fecha formateada
+            val dateFormat = SimpleDateFormat("dd/MM/yy", Locale.getDefault())
+            dateFormat.format(Date(dateLong))
         }
     }
 }
