@@ -53,13 +53,6 @@ class NewNoteFragment : Fragment() {
         binding.etTitleNote.setText(title)
         binding.etBodyNote.setText(body)
         binding.tvNewNoteDate.text = convertDateLongToString(date)
-//        if (date != 0L) {
-//            convertDateLongToString(date)
-////            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date(date))
-//        } else {
-//            convertDateLongToString(date)
-////            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(Date())
-//        }
     }
 
     private fun saveNote() {
