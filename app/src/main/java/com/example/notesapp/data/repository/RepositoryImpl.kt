@@ -15,8 +15,8 @@ class RepositoryImpl @Inject constructor(
     override suspend fun searchNotes(userFilter: String): List<Note> {
         return noteDataSource.searchNotes(userFilter)
     }
-    override suspend fun onDeleteNote(newNote: Note) {
-        noteDataSource.deleteNote(newNote)
+    override suspend fun onDeleteNote(note: Note) {
+        noteDataSource.deleteNote(note)
     }
     override suspend fun saveNote(title: String, body: String) {
         val newNote = Note(id = 0, title = title, body = body, date = System.currentTimeMillis())
