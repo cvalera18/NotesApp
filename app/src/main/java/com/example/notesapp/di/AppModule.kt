@@ -1,10 +1,8 @@
 package com.example.notesapp.di
 
-import com.example.notesapp.data.repository.Repository
+import com.example.notesapp.domain.repository.Repository
 import com.example.notesapp.data.repository.RepositoryImpl
-import com.example.notesapp.data.database.dao.NoteDao
 import com.example.notesapp.data.datasource.NoteDataSource
-import com.example.notesapp.utils.DateProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,8 +23,4 @@ object AppModule {
     fun provideRepository(
         noteDataSource: NoteDataSource
     ): Repository = RepositoryImpl(noteDataSource)
-
-    @Singleton
-    @Provides
-    fun provideDateProvider(): DateProvider = DateProvider()
 }

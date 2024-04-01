@@ -1,4 +1,4 @@
-package com.example.notesapp.ui.newnote
+package com.example.notesapp.presentation.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.notesapp.R
 import com.example.notesapp.databinding.FragmentNewNoteBinding
+import com.example.notesapp.presentation.viewmodel.NewNoteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

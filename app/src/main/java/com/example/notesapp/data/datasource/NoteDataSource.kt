@@ -1,6 +1,6 @@
 package com.example.notesapp.data.datasource
 
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.model.Note
 
 interface NoteDataSource {
     suspend fun getNotes(): List<Note>

@@ -1,7 +1,8 @@
 package com.example.notesapp.data.repository
 
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.model.Note
 import com.example.notesapp.data.datasource.NoteDataSource
+import com.example.notesapp.domain.repository.Repository
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(

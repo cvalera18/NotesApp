@@ -1,10 +1,10 @@
-package com.example.notesapp.ui.newnote
+package com.example.notesapp.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.notesapp.data.repository.Repository
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.repository.Repository
+import com.example.notesapp.domain.model.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

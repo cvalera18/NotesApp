@@ -1,9 +1,9 @@
-package com.example.notesapp.adapter
+package com.example.notesapp.presentation.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.notesapp.databinding.ItemNoteBinding
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.model.Note
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

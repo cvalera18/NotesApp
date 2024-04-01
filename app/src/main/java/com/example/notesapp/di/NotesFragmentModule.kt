@@ -1,7 +1,7 @@
 package com.example.notesapp.di
 
-import com.example.notesapp.adapter.NotesAdapterFactory
-import com.example.notesapp.adapter.NotesAdapterFactoryImpl
+import com.example.notesapp.presentation.adapter.NotesAdapterFactory
+import com.example.notesapp.presentation.adapter.NotesAdapterFactoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

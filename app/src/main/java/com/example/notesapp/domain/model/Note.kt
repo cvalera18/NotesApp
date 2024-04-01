@@ -1,6 +1,6 @@
-package com.example.notesapp.model
+package com.example.notesapp.domain.model
 
-import com.example.notesapp.data.database.entities.NoteEntity
+import com.example.notesapp.data.datasource.local.database.entities.NoteEntity
 
 data class Note(
     val id: Long,

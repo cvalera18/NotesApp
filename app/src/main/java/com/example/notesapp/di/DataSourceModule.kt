@@ -1,7 +1,7 @@
 package com.example.notesapp.di
 
-import com.example.notesapp.data.database.dao.NoteDao
-import com.example.notesapp.data.datasource.LocalNoteDataSource
+import com.example.notesapp.data.datasource.local.database.dao.NoteDao
+import com.example.notesapp.data.datasource.local.LocalNoteDataSource
 import com.example.notesapp.data.datasource.NoteDataSource
 import dagger.Module
 import dagger.Provides

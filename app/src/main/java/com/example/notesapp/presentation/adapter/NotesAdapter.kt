@@ -1,10 +1,10 @@
-package com.example.notesapp.adapter
+package com.example.notesapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.model.Note
 
 class NotesAdapter(
     private var noteList: List<Note>,

@@ -1,9 +1,10 @@
-package com.example.notesapp.data.datasource
+package com.example.notesapp.data.datasource.local
 
-import com.example.notesapp.data.database.dao.NoteDao
-import com.example.notesapp.model.Note
-import com.example.notesapp.model.toEntity
-import com.example.notesapp.model.toNote
+import com.example.notesapp.data.datasource.NoteDataSource
+import com.example.notesapp.data.datasource.local.database.dao.NoteDao
+import com.example.notesapp.domain.model.Note
+import com.example.notesapp.domain.model.toEntity
+import com.example.notesapp.domain.model.toNote
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

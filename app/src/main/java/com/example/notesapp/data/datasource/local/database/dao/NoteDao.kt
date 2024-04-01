@@ -1,4 +1,4 @@
-package com.example.notesapp.data.database.dao
+package com.example.notesapp.data.datasource.local.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.notesapp.data.database.entities.NoteEntity
+import com.example.notesapp.data.datasource.local.database.entities.NoteEntity
 
 @Dao
 interface NoteDao {

@@ -1,6 +1,6 @@
-package com.example.notesapp.data
+package com.example.notesapp.data.datasource.local
 
-import com.example.notesapp.model.Note
+import com.example.notesapp.domain.model.Note
 import javax.inject.Inject
 
 class NoteProvider @Inject constructor() {
