@@ -33,6 +33,9 @@ Para ejecutar este proyecto, sigue estos pasos:
 
 ## Pruebas
 - Para ejecutar las pruebas unitarias, navega a la carpeta `src/test` y ejecuta los tests.
-- Para pruebas de UI, navega a la carpeta `src/androidTest` y ejecuta los tests. (Si aplicable)
 
 ## Capturas de Pantalla
+![template](https://github.com/cvalera18/NotesApp/assets/57680708/f2f3eb45-8062-4657-bf20-67697c71f8ad) ![template (1)](https://github.com/cvalera18/NotesApp/assets/57680708/5ee8cf4b-f4af-4ce7-80b6-2eb2c67182ae) ![template (2)](https://github.com/cvalera18/NotesApp/assets/57680708/ac54741f-b8ab-4de6-adb0-e2e9e057af50) ![template (3)](https://github.com/cvalera18/NotesApp/assets/57680708/4d058ab9-6cb9-47ab-8c85-1f7e1829443a)
+
+
+
