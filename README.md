@@ -14,7 +14,7 @@ Notas App es una aplicación Android desarrollada utilizando Kotlin que permite 
 - **Arquitectura de la Aplicación**: Clean Architecture, MVVM
 - **Gestión de Dependencias**: Hilt
 - **Base de Datos Local**: Room
-- **Testing**: JUnit para pruebas unitarias (opcional: Espresso para pruebas de UI)
+- **Testing**: JUnit para pruebas unitarias
 
 ## Estructura del Proyecto
 El proyecto se divide en las siguientes capas principales:
