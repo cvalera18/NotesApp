@@ -17,6 +17,7 @@ coroutinesTest = "1.7.1"
 hilt = "2.51"
 kapt = "1.9.23"
 room = "2.6.1"
+mockk = "1.13.10"
 
 
 [libraries]
@@ -38,6 +39,7 @@ org-jetbrains-kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name 
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
