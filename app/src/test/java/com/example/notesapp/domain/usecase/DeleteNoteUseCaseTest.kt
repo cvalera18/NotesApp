@@ -3,30 +3,30 @@ package com.example.notesapp.domain.usecase
 import com.example.notesapp.domain.model.Note
 import com.example.notesapp.domain.repository.Repository
 import io.mockk.MockKAnnotations
+import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
-import kotlinx.coroutines.test.runTest
+import io.mockk.just
+import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class SaveNoteUseCaseTest {
 
+class DeleteNoteUseCaseTest {
     // Mock del repositorio
     @RelaxedMockK
     private lateinit var repository: Repository
-    private lateinit var saveNoteUseCase: SaveNoteUseCase
+    private lateinit var deleteNoteUseCase: DeleteNoteUseCase
 
     @Before
     fun setUp() {
-        // Inicializar el mock del Repository con MockK
         MockKAnnotations.init(this)
-        // Inicializar el SaveNoteUseCase con el repositorio mockeado
-        saveNoteUseCase = SaveNoteUseCase(repository)
+        deleteNoteUseCase = DeleteNoteUseCase(repository)
     }
 
     @Test
-    fun `invoke saveNoteUseCase, verify saveNote called on repository with correct arguments`() =
-        runTest {
+    fun `invoke deleteNoteUseCase, verify onDeleteNote called on repository with correct note`() =
+        runBlocking {
             // Given
             val note = Note(
                 id = 0,
@@ -36,9 +36,10 @@ class SaveNoteUseCaseTest {
             )
 
             // When
-            saveNoteUseCase(note)
+            deleteNoteUseCase(note)
 
             // Then
-            coVerify(exactly = 1) { repository.saveNote(note.title, note.body) }
+            coVerify(exactly = 1) { repository.onDeleteNote(note) }
         }
+
 }

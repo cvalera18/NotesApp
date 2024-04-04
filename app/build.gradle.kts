@@ -59,13 +59,12 @@ dependencies {
     implementation(libs.org.jetbrains.kotlinx.coroutines)
     implementation(libs.hilt.android)
     implementation(libs.room.runtime)
+    testImplementation("junit:junit:4.12")
     kapt(libs.room.compiler)
     implementation(libs.room.ktx)
 
     kapt(libs.hilt.android.compiler)
-    // Unit testing
     testImplementation(libs.mockk)
-    testImplementation(libs.androidx.core.testing)
     testImplementation(libs.org.jetbrains.kotlinx.coroutines.test)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
