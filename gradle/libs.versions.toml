@@ -18,6 +18,7 @@ hilt = "2.51"
 kapt = "1.9.23"
 room = "2.6.1"
 mockk = "1.13.10"
+coreTesting = "2.2.0"
 
 
 [libraries]
@@ -40,6 +41,7 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
