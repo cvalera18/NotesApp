@@ -41,7 +41,7 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-coreTesting = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
